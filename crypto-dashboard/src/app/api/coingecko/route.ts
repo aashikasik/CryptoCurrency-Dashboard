@@ -20,8 +20,9 @@ export async function GET(request: Request) {
       headers: COINGECKO_API_KEY ? { 'x-cg-pro-api-key': COINGECKO_API_KEY } : {},
     });
     return NextResponse.json(data);
-  } catch (error: any) {
-    console.error('CoinGecko API error:', error?.response?.data || error.message);
-    return NextResponse.json({ error: error?.response?.data || error.message }, { status: 500 });
+  } catch (error) {
+    const err = error as { response?: { data?: any }; message?: string };
+    console.error('CoinGecko API error:', err?.response?.data || err?.message);
+    return NextResponse.json({ error: err?.response?.data || err?.message }, { status: 500 });
   }
 }

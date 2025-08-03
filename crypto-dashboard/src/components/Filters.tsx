@@ -1,8 +1,15 @@
 import React from 'react';
 
+interface FiltersType {
+  market_cap_rank?: string;
+  price_change_percentage_24h?: string;
+  volume?: string;
+  [key: string]: string | undefined;
+}
+
 interface FilterProps {
-  filters: { [key: string]: any };
-  setFilters: (filters: { [key: string]: any }) => void;
+  filters: FiltersType;
+  setFilters: (filters: FiltersType) => void;
 }
 
 export default function Filters({ filters, setFilters }: FilterProps) {
