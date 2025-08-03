@@ -21,7 +21,7 @@ export async function GET(request: Request) {
     });
     return NextResponse.json(data);
   } catch (error) {
-    const err = error as { response?: { data?: any }; message?: string };
+    const err = error as { response?: { data?: unknown }; message?: string };
     console.error('CoinGecko API error:', err?.response?.data || err?.message);
     return NextResponse.json({ error: err?.response?.data || err?.message }, { status: 500 });
   }
