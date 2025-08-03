@@ -1,0 +1,3 @@
+<!-- Use this file to provide workspace-specific custom instructions to Copilot. For more details, visit https://code.visualstudio.com/docs/copilot/copilot-customization#_use-a-githubcopilotinstructionsmd-file -->
+
+This project is a Next.js crypto dashboard using TypeScript, Tailwind CSS, shadcn/ui, and a charting library. It fetches data from the CoinGecko API and includes features like paginated coin list, search/filter, coin details with charts, and a localStorage-based watchlist. Please generate clean, reusable components, handle loading/error/empty states, and ensure responsive design for Vercel deployment.
