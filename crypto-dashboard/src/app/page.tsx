@@ -40,6 +40,9 @@ function TrendingBanner({ coins }: { coins: Coin[] }) {
 import { Coin } from '@/types/coin';
 import LoadingSkeleton from '@/components/LoadingSkeleton';
 import { useRef } from 'react';
+import Link from 'next/link';
+import { useDebounce } from '@/hooks/useDebounce';
+import { isWatched, toggleWatchlist } from '@/lib/watchlist';
 
 function GlobalSearchBar({ onSearch }: { onSearch: (v: string) => void }) {
   const [value, setValue] = useState('');
@@ -74,9 +77,13 @@ import TableHeader from '@/components/TableHeader';
 import Pagination from '@/components/Pagination';
 import SearchInput from '@/components/SearchInput';
 import Filters from '@/components/Filters';
-import { useDebounce } from '@/hooks/useDebounce';
-import { isWatched, toggleWatchlist } from '@/lib/watchlist';
-import Link from 'next/link';
+
+interface FiltersType {
+  market_cap_rank?: string;
+  price_change_percentage_24h?: string;
+  volume?: string;
+  [key: string]: string | undefined;
+}
 
 export default function Home() {
   const [coins, setCoins] = useState<Coin[]>([]);
@@ -85,7 +92,7 @@ export default function Home() {
   const [error, setError] = useState('');
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState('');
-  const [filters, setFilters] = useState<any>({});
+  const [filters, setFilters] = useState<FiltersType>({});
   const [totalPages, setTotalPages] = useState(20); // CoinGecko max 1000 coins
 
   const debouncedSearch = useDebounce(search, 400);
