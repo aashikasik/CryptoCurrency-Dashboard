@@ -1,4 +1,4 @@
-import { Coin } from '../types/coin';
+
 
 const WATCHLIST_KEY = 'crypto_watchlist';
 
