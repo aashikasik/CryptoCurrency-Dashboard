@@ -130,7 +130,6 @@ interface FiltersType {
 
 export default function Home() {
   const [coins, setCoins] = useState<Coin[]>([]);
-  const [globalSearch, setGlobalSearch] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [page, setPage] = useState(1);
@@ -200,7 +199,7 @@ export default function Home() {
   useEffect(() => {
     setLoading(true);
     setError('');
-    fetchMarkets(page, 50, globalSearch || debouncedSearch, filters)
+    fetchMarkets(page, 50, debouncedSearch, filters)
       .then((data) => {
         setCoins(data);
         setLoading(false);
@@ -215,9 +214,9 @@ export default function Home() {
   return (
     <div className="max-w-6xl mx-auto p-4 dark:bg-gray-900 min-h-screen transition-colors">
       <div className="flex items-center mb-4">
-        <h1 className="text-2xl font-bold">Crypto Markets</h1>
+        <h1 className="text-2xl font-bold">crypto dashboard</h1>
       </div>
-      <GlobalSearchBar onSearch={setGlobalSearch} />
+      {/* Global Search feature removed */}
       <div className="flex flex-col sm:flex-row gap-4 mb-4">
         <SearchInput value={search} onChange={setSearch} />
         <Filters filters={filters} setFilters={setFilters} />
