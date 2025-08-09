@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
           <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-            <nav className="w-full flex gap-6 px-6 py-4 border-b bg-white shadow-sm mb-6">
+            <nav className="w-full flex justify-end gap-6 px-6 py-4 border-b bg-white shadow-sm mb-6">
               <Link href="/" className="font-bold text-lg text-green-600">Markets</Link>
               <Link href="/watchlist" className="font-bold text-lg text-yellow-500">Watchlist</Link>
             </nav>
