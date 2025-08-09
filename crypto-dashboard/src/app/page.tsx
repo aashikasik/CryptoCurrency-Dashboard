@@ -148,12 +148,8 @@ export default function Home() {
 
   return (
     <div className="max-w-6xl mx-auto p-4 dark:bg-gray-900 min-h-screen transition-colors relative">
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center mb-4">
         <h1 className="text-2xl font-bold">Crypto Market Lists</h1>
-        <div className="flex gap-3">
-          <Link href="/" className="px-4 py-2 rounded bg-blue-600 text-white font-bold shadow hover:bg-blue-700 transition">Markets</Link>
-          <Link href="/watchlist" className="px-4 py-2 rounded bg-yellow-400 text-black font-bold shadow hover:bg-yellow-500 transition">Watchlist</Link>
-        </div>
       </div>
       <div className="flex flex-col sm:flex-row gap-4 mb-4">
         <SearchInput value={search} onChange={setSearch} />
